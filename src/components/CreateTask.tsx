@@ -2,7 +2,7 @@ import React from "react";
 
 function CreateTask() {
     return ( 
-        <div>
+        <>
             <form>
                 <input type="text" placeholder="Task"/>
                 <select>
@@ -12,7 +12,7 @@ function CreateTask() {
                 </select>
                 <button>Create</button>
             </form>
-        </div>
+        </>
      );
 }
 

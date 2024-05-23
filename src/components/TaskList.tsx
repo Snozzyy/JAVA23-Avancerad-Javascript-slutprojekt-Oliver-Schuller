@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import TaskCard from "./TaskCard";
+import { onValue } from "firebase/database";
+import { assignmentsRef } from "../utils/firebase";
+import { TaskProps } from "../utils/interfaces";
+import { getTasks } from "../utils/assignments";
 
-function TaskList({listType}: {listType:string}) {
+
+
+function TaskList({title, assignments}: TaskProps) { 
 
     return ( 
         <div>
-            <h1>{listType}</h1>
-            <TaskCard taskStatus={listType}/>
+            <h1>{title}</h1>
+            {assignments.map((task) => {                
+                return <TaskCard title={title} assignments={task}/>
+            })}
+
         </div>
      );
 }

@@ -1,29 +1,38 @@
 import React from "react";
+import { TaskProps } from "../utils/interfaces";
 
-function TaskCard({taskStatus}: {taskStatus:string}) {
+function TaskCard({assignments}: TaskProps) {
+    
+    const assigned:string = assignments.assigned;
+    const assignment:string = assignments.assignment;
+    const category:string = assignments.category;
+    const status:string = assignments.status;
 
-    if (taskStatus == "To Do") {
+    
+    // snygga till
+    if (status == "todo") {
         return ( 
             <>
-                <p>Göra klart TaskList</p>
+                <h4>{assignment}</h4>
                 <form>
                     <input type="text" placeholder="Enter name"/>
                     <button>Assign</button>
                 </form>
             </>
         );
-    } else if (taskStatus == "In Progress") {
+        
+    } else if (status == "inProgress") {
         return (
             <>
-                <p>Göra klart TaskList</p>
+                <h4>{assignment}</h4>
                 <p>-Oliver</p>
                 <button>Done</button>
             </>
         )
-    } else if (taskStatus == "Done") {
+    } else if (status == "done") {
         return (
             <>
-                <p>Göra klart TaskList</p>
+                <h4>{assignment}</h4>
                 <p>-Oliver</p>
                 <button>Remove</button>
             </>
