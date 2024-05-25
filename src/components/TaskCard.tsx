@@ -1,41 +1,42 @@
 import React from "react";
-import { TaskProps } from "../utils/interfaces";
+import { TaskProps } from "../utils/typescript";
 
 function TaskCard({assignments}: TaskProps) {
     
     const assigned:string = assignments.assigned;
     const assignment:string = assignments.assignment;
     const category:string = assignments.category;
-    const status:string = assignments.status;
+    const taskStatus:string = assignments.status;
 
     
     // snygga till
-    if (status == "todo") {
+    if (taskStatus == "todo") {
         return ( 
-            <>
+            <div className={category}>
                 <h4>{assignment}</h4>
                 <form>
                     <input type="text" placeholder="Enter name"/>
                     <button>Assign</button>
                 </form>
-            </>
+            </div>
         );
         
-    } else if (status == "inProgress") {
+    } else if (taskStatus == "inProgress") {
         return (
-            <>
+            <div className={category}>
                 <h4>{assignment}</h4>
-                <p>-Oliver</p>
+                <p>-{assigned}</p>
                 <button>Done</button>
-            </>
-        )
-    } else if (status == "done") {
+            </div>
+        );
+
+    } else if (taskStatus == "done") {
         return (
-            <>
+            <div className={category}>
                 <h4>{assignment}</h4>
-                <p>-Oliver</p>
+                <p>-{assigned}</p>
                 <button>Remove</button>
-            </>
+            </div>
         );
     }
 }
