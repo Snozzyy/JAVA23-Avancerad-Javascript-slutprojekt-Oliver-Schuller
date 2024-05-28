@@ -6,13 +6,16 @@ import InProgCard from "./InProgCard";
 
 
 function TaskList({title, assignments, status}: TaskProps) { 
+    // Add each element in object to an array
     const taskArr:Object[] = [];
     for (const key in assignments)
-        taskArr.push(assignments[key])
-    
+        taskArr.push(assignments[key]);
+
     return ( 
         <>
             <h1>{title}</h1>
+            {/* Create task card for each task in taskArr,
+                Checks task status and displays card in correct task list  */}
             {taskArr.map((task: any) => {
                 if (status == "todo" && task.status == "todo")
                     return <TodoCard key={task.taskId} task={task}/>

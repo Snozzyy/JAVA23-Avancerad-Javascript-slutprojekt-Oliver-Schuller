@@ -1,8 +1,13 @@
 export interface TaskProps {
     title: string;
     status?:string;
-    
-    // Orkar inte med errors atm, byt ut any mot korrekt typ
-    assignments: any;
+    assignments: Object;
 }
 
+export interface TaskObject {
+    assigned: string,
+    assignment: string,
+    category: string,
+    status: string,
+    taskId: string
+}

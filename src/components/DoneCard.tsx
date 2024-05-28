@@ -1,16 +1,19 @@
+import { ref, remove } from "firebase/database";
 import React from "react";
+import { db } from "../utils/firebaseConfig";
 
 function DoneCard({task}) {
-
-    const category = task.category;
-    const assignment = task.assignment;
-    const assigned = task.assigned;    
+    
+    function handleClick(){
+        const taskRef = ref(db, "/assignments/" + task.taskId);
+        remove(taskRef);
+    }
 
     return (
-        <div className={category}>
-            <h4>{assignment}</h4>
-            <p>-{assigned}</p>
-            <button>Remove</button>
+        <div className={task.category}>
+            <h4>{task.assignment}</h4>
+            <p>-{task.assigned}</p>
+            <button onClick={handleClick}>Remove</button>
         </div>
     );
 }

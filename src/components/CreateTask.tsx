@@ -1,36 +1,24 @@
-import { push, update } from "firebase/database";
-import React from "react";
-import { assignmentsRef } from "../utils/firebase.ts";
+import React, { ChangeEvent } from "react";
+import {createTask} from "../utils/ReadWriteTasks.ts"
 
 function CreateTask() {
-    // Flytta ut i egen fil?
     let taskAssignment = "";
-    let category = "";
+    let taskCategory = "frontend";
 
+    // Set assignment with value from text input
     function setTaskAssignment(event:React.ChangeEvent<HTMLInputElement>){
         taskAssignment = event.target.value;
     }
 
-    function setCategory(event){
-        category = event.target.value;
+    // Set category from select input
+    function setCategory(event:ChangeEvent<HTMLSelectElement>){
+        taskCategory = event.target.value;
     }
 
-    function handleSubmit(event){
+    // Create task in database based on taskAssignment and category
+    function handleSubmit(event:ChangeEvent<HTMLFormElement>){
         event.preventDefault();
-
-        const newTask = {};
-        const taskId = push(assignmentsRef).key;
-
-        newTask[taskId] = {
-            assigned: "",
-            assignment: taskAssignment,
-            category: category,
-            status: "todo" 
-        }
-        
-       console.log(newTask);
-       update(assignmentsRef, newTask);
-
+        createTask(taskAssignment, taskCategory)
         event.target.reset();
     }
 
