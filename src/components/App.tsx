@@ -3,7 +3,6 @@ import CreateTask from "./CreateTask";
 import TaskContainer from "./TaskContainer";
 
 export function App(){ 
-
     return (
         <>
             <CreateTask/>

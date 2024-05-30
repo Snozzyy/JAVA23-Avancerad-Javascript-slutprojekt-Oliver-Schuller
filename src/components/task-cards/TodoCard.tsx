@@ -1,7 +1,10 @@
 import React, { ChangeEvent } from "react";
-import { updateAssigned } from "../utils/ReadWriteTasks";
+import { updateAssigned } from "../../utils/updateFirebase";
+import ChecklistModal from "../checklist/ChecklistModal";
 
 function TodoCard({task}) {
+
+    const {assignment, category} = task;
 
     let assignedUser = "";
 
@@ -18,8 +21,9 @@ function TodoCard({task}) {
     }
 
     return ( 
-        <div className={task.category}>
-            <h4>{task.assignment}</h4>
+        <div className={category}>
+            <h4>{assignment}</h4>
+            <ChecklistModal task={task}/>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Enter name" onChange={handleChange}/>
                 <button>Assign</button>

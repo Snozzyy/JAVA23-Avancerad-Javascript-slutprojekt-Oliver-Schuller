@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import {TaskProps } from "../utils/typescript";
-import DoneCard from "./DoneCard";
-import TodoCard from "./TodoCard";
-import InProgCard from "./InProgCard";
+import DoneCard from "./task-cards/DoneCard";
+import TodoCard from "./task-cards/TodoCard";
+import InProgCard from "./task-cards/InProgCard";
 
 
 function TaskList({title, assignments, status}: TaskProps) { 

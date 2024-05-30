@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import {createTask} from "../utils/ReadWriteTasks.ts"
+import {createTask} from "../utils/updateFirebase.ts"
 
 function CreateTask() {
     let taskAssignment = "";
@@ -13,12 +13,16 @@ function CreateTask() {
     // Set category from select input
     function setCategory(event:ChangeEvent<HTMLSelectElement>){
         taskCategory = event.target.value;
+        console.log(taskCategory);
     }
 
     // Create task in database based on taskAssignment and category
     function handleSubmit(event:ChangeEvent<HTMLFormElement>){
         event.preventDefault();
         createTask(taskAssignment, taskCategory)
+
+        // Reset taskCategory to default
+        taskCategory = "frontend";
         event.target.reset();
     }
 
