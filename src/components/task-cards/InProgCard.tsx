@@ -14,7 +14,8 @@ function InProgCard({task}) {
 
     return (
         <div className={category}>
-            <h4>{assignment}</h4>
+            <h3>{assignment}</h3>
+            <h4>{category}</h4>
             <p>-{assigned}</p>
             <ChecklistModal task={task}/>
             <button onClick={handleClick}>Done</button>

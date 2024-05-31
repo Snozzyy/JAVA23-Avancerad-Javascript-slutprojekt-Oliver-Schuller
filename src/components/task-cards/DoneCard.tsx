@@ -13,7 +13,8 @@ function DoneCard({task}) {
 
     return (
         <div className={category}>
-            <h4>{assignment}</h4>
+            <h3>{assignment}</h3>
+            <h4>{category}</h4>
             <p>-{assigned}</p>
             <button onClick={handleClick}>Remove</button>
         </div>

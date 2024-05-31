@@ -22,7 +22,8 @@ function TodoCard({task}) {
 
     return ( 
         <div className={category}>
-            <h4>{assignment}</h4>
+            <h3>{assignment}</h3>
+            <h4>{category}</h4>
             <ChecklistModal task={task}/>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Enter name" onChange={handleChange}/>
