@@ -13,7 +13,6 @@ function CreateTask() {
     // Set category from select input
     function setCategory(event:ChangeEvent<HTMLSelectElement>){
         taskCategory = event.target.value;
-        console.log(taskCategory);
     }
 
     // Create task in database based on taskAssignment and category

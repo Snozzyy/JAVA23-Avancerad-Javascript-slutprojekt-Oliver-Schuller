@@ -1,4 +1,6 @@
-export function calculateProgress(taskArr){
+import { ChecklistObject } from "./typescript";
+
+export function calculateProgress(taskArr:ChecklistObject[]){
     const amountOfTasks = taskArr.length;
     let amountDone:number = 0;
 

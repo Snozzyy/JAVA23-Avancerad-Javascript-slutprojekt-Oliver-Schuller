@@ -7,21 +7,29 @@ import { onValue } from "firebase/database";
 function TaskContainer() {
     
     const [tasks, setTasks] = useState({});
+    const [isError, setIsError] = useState(false)
 
     useEffect(() => {
         // onValue updates site in realtime
         onValue(assignmentsRef, (snapshot) => {
-            const tasksData = snapshot.val();
-            // Add taskId as a key to object
-            for (const key in tasksData) {
-                tasksData[key].taskId = key
+            try {
+                const tasksData = snapshot.val();
+                // Add taskId as a key to object
+                for (const key in tasksData) {
+                    tasksData[key].taskId = key
+                }
+                setTasks(tasksData);
+                
+            } catch (error) {
+                console.log(error);
+                alert("Something went wrong, please try again later!")
             }
-            setTasks(tasksData);
         })
     }, [])
     
     return ( 
         <>
+            {isError && <h1>Something went wrong, please try again later</h1>}
             <TaskList title="To Do" assignments={tasks} status="todo"/>
             <TaskList title="In Progress" assignments={tasks} status="inProgress"/>
             <TaskList title="Done" assignments={tasks} status="done"/>
