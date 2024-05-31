@@ -8,6 +8,7 @@ function Checklist({task, taskId, taskIndex}:ChecklistProps) {
     const {isDone} = task
     const [done, setDone] = useState(isDone);
 
+    // Switch status on task
     function handleChange(){
         updateChecklistStatus(taskId, taskIndex, done)
         setDone(!done)

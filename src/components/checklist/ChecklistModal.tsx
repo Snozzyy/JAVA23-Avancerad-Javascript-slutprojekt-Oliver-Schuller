@@ -9,7 +9,6 @@ import ProgressBar from "./ProgressBar";
 function ChecklistModal({task}) {
     const {assignment, taskId, checklist} = task;
     const [modal, setModal] = useState(false);
-    // Ta bort any
     let taskArr:ChecklistObject[] = [];
 
     for (const key in checklist) {
@@ -35,6 +34,7 @@ function ChecklistModal({task}) {
                                 )
                             })}
 
+                            {/* Only display progress bar when checklist exist */}
                             {taskArr.length > 0 && 
                                 <ProgressBar tasks={checklist}/>
                             }

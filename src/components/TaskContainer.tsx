@@ -28,12 +28,12 @@ function TaskContainer() {
     }, [])
     
     return ( 
-        <>
+        <div className="task-container">
             {isError && <h1>Something went wrong, please try again later</h1>}
             <TaskList title="To Do" assignments={tasks} status="todo"/>
             <TaskList title="In Progress" assignments={tasks} status="inProgress"/>
             <TaskList title="Done" assignments={tasks} status="done"/>
-        </>
+        </div>
      );
 }
 
