@@ -1,6 +1,6 @@
 # JAVA23-AJS-slutprojekt-Oliver-Schuller
 ## Scrum Board
-https://snozzyy.github.io/JAVA23-AJS-slutprojekt-Oliver-Schuller/
+[https://snozzyy.github.io/JAVA23-AJS-slutprojekt-Oliver-Schuller/](https://snozzyy.github.io/JAVA23-Avancerad-Javascript-slutprojekt-Oliver-Schuller/)
 
 ## Description
 A realtime web application for using scrum board built with Typescript, Firebase Realtime Database and React. 
